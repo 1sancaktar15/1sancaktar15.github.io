@@ -1,53 +1,53 @@
-body,
-html
-{
-	width: 100%;
-	height: 100%;
-	font-family: 'Montserrat', sans-serif;
-	background:  url(header.avif) no-repeat center center fixed;
-	-webkit-background-size:  cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
+/* (A) STATIC BALL */
+.ball {
+  /* (A1) DIMENSIONS */
+  width: 100px; height: 100px;
+  border-radius: 50%;
 
-}
-h1
-{
-	font-size: 3rem;
-	color: #d2dbe3;
-}
-hr
-{
-	border-color: #f67f1b;
-	border-width: 3px;
-	max-width: 65px;
-}
-.buffer
-{
-	height: 10rem;
-}
-.btn
-{
-	font-weight: 700;
-	border-radius: 300px;
-	text-transform: uppercase;
+  /* (A2) MORE TOP MARGIN FOR BOUNCE ANIMATION */
+  margin: 80px auto 0 auto;
+
+  /* (A3) COLOR */
+  background: #f45342;
 }
 
-.btn-primary
-{
-	background-color: #f67f1b;
-	border-color: #f67f1b;
+/* (B) SIMPLE BOUNCE */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
 }
 
-.btn-primary:hover
-{
-	background-color: #9d5518;
-	border-color: #9d5518;
-	border-width: 4px;
+.bounce {
+  animation: bounce 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
+/* (C) ADDING "GRAVITY" */
+@keyframes gbounce {
+  0% { transform: translateY(0); }
+  30% { transform: translateY(-50px); }
+  50% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
 
-.btn-xl
-{
-	padding: 1rem 2rem;
+.gbounce {
+  animation: gbounce 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+}
+
+/* (D) ADDING "SPRING EFFECT" */
+@keyframes spring {
+  0% { transform: scale(1) translateY(0); }
+  10% { transform: scale(1.2, 0.6); }
+  30% { transform: scale(0.8, 1.1) translateY(-50px); }
+  50% { transform: scale(1) translateY(0); }
+  100% { transform: translateY(0); }
+}
+
+.spring {
+  animation: spring 2s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 }
